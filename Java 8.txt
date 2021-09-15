@@ -1,0 +1,217 @@
+Java 8 introduced 2014 march 8th
+Features:
+------------------------------------
+concise code 
+Enable Functional programing
+
+1 Lambada Expression( java.util.function)
+2 Functional Interface
+3 Default and static method
+4 Predefined Functoinal Interface 
+Predicate
+Function
+
+------------------------------
+Q. What is Lambda Expression ?
+A. Lambda Expression is provide a simplest and sortest way to define anonymous function.Or A anonymous fuction which don't
+    have any name,no return type,no modifire is called Lambda Expression or Annonymous function. 
+Advantage :- lambda expression is consize code.
+
+Q. How to write Lambda Expression?
+ Lambda Expression is anonymous function that means noName,no returntype and no modifire.
+
+Normal we print hello
+  
+   public void m1(){
+
+ 	System.out.println("Hello");
+    } 
+
+	In Lambda Expression we print 
+        No Name -       m1() remove
+        No returnType - void remove
+        No modifire -   public remove 
+
+Note:- "For lambda expression we Arrow(->) sysmbol to define"
+  
+ ()->{
+      System.out.println("Hello");
+   }
+
+currly breces is optional for a one line ..
+--------------------------------------------
+Example 2.
+ 
+  public void m1(int a, int b){
+   
+     System.out.println(a+b) 
+   }
+ convert into lambda expression
+
+   (int a,int b)->System.out.println(a+b);
+
+(We can remove type parameter sometime compiler can guest autometically. )
+like 
+       (a,b)->System.out.println(a+b);
+----------------------------------------------
+
+Example 3.
+          public int square(int a){
+          
+	       return a*a;
+           }
+	
+	In Lambda Expression we write
+      
+	(int a)->{ return a*a;}
+	(int a)->a*a;
+	a->a*a;	
+------------------------------------------------------------
+Note:-"We should return with currly breces means if you use return keyword then complsary you should use currly breces
+       If you don't use retrun keyword then we can return without currly bresse."
+-----------------------------------------------------------------
+Note:- "For a one prameter there is not required prantesis()."
+-----------------------------------------------------------------
+Q. How to call Lambda Expression ?
+A. With the help Functional Interface.
+Functional interface are:- Runnable(run()), Comparable(compareTo()),ActionListener(actionPerformed()),
+        Callable(call()).
+----------------------------------------------------------
+
+Q. What is Functional Interface(SAM interface) ?
+A. A interface which have only one abstract method or any number of default and static method may have is called lambda Expression.
+     A method they don't have body called abstract method. It is define by @FunctionalInterface annotation(It is optional).
+
+Note: Lambda Expression concept only for applicable functional interface if there is no functional interface then Lambda expression
+       we can not use .without functional interface no chance of lambda expression...
+
+Inheritace with functional interface
+-----------------------------------
+         @FunctionalInterface
+ 		interface A{
+	
+	public void m1();
+	}
+         @FunctionalInterface
+ 	interface B extends A{
+	
+	}
+Answer :- Valid..
+
+    @FunctionalInterface
+ 		interface A{
+	
+	public void m1();
+	}
+         @FunctionalInterface
+ 	interface B extends A{
+	
+         public void m1();
+	}
+
+
+Answer:- Valid ..
+
+       @FunctionalInterface
+ 		interface A{
+	
+	public void m1();
+	}
+         @FunctionalInterface
+ 	interface B extends A{
+	
+         public void m2();
+	}
+Answer:- Invalid..     //Because inside interface A has already abstract method and when we extends in interface B then autometically m1()method will go inside Interface B
+                       //so when we define m2() method then error will occour because interface B has already m1() byDefault.     
+-------------------------------------------------
+Q Lambda Expression with Functional Interface.
+
+	interface Inter{
+	
+             public void m1(); 
+	}
+
+	class Demo implements Inter{
+	 
+		public void m1(){
+	         syso("hello");
+     }                             // Lambda Expression is:- ()->syso("Hello");
+	}
+
+	class Test{
+	
+	public static void main(String[] args){
+	
+	Demo d = new Demo();
+	d.m1();
+		}
+		}
+
+With Lambda Expression
+           
+            interface Interf{
+	
+             public void m1(); 
+	}
+
+	class Test{
+	
+	public static void main(String[] args){
+	
+	Interf i = ()->syso("Hello");
+	i.m1();
+		}
+		}
+-------------------------------------------------------------------	
+	
+Default & static method in Interface 
+
+Default Method:- Without effecting implimentation classes and if you want to add new method inside a interface then we should
+                    go for default method in interface.
+static Method:- To define general utility method inside a interface with static and this method is not override and not applicable
+                     implementation of interface class.  We can call this method only by interface name whether interface are 
+     implemented by class or not.
+ If class implements interface then we can'nt call interface static method by implements class name because it is not applicable 
+  it's implements class.
+-----------------------------------------------------------------
+
+Predefined functional interface 
+-----------------------------------------------------------------
+Predicate
+Function
+Consumer
+Supplier 
+
+Preicate Interface : Same as functional interface but used for conditional checking it has test(T t) method which return
+                     boolean value.
+ 
+      public static void main(String[] args){
+
+	  Predicate<Integer>p = i->i%2==0;
+ 		 syso(p.test(10)); 
+}
+
+------------------------------------------------------------------
+Stream vs Collection
+
+Collection: If you want to represent a group of individual object as single entity then we should go for collection interface,
+Stream:  If u want to process objects from a collection.
+
+Stream has two opration.
+1. Intermediate Opreation.-(filter(),map(),sorted(),limit(),skip(),distnict()..)
+2. Terminal Operation.-(collect(),count(),findFirst(),findAny(),reduce(),toArray(),min(),max()forEach()..)
+
+-----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
