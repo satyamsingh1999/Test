@@ -207,8 +207,25 @@ Stream has two opration.
 Hi Satyam, 
       This is editing for trieal purpose so don't worry about it.
 
+-----------------------------------------------------
+	"'Git Command"'
+        ----------------------------
+1.   git init (This is used to initialise empty repository in local)
+2.   git add<file name> (this is used to store your file in staging area )
+3.   git commit -m "your commit "  (this is used when you do change somthing in file and commit so it will go inside your
+                                                            local repository).
+4.  git branch<branch name> ( this is used to create new branch and write your code and also can create new file which
+                                                         will be indivisual to other branch file until you merge ).
+5   git merge<branch name> (this is used to merge your other branch into master branch because we puch our master 
+                                                  branch in production we can also puch our all using push command).
 
-
+6.  git remote add origin <url>  (this is used to connect your local repository with githhub repository).
+7.  git push -u origin master  (this is used to push your master branch from local repository to github repository).
+8.  git checkout<branch name> (this is used to switching branch from one to other)
+9.  git -version ( to check version)
+10. git status (this is used to check user current branch file status)
+11. git log (this is used to check all commit of this particuler branch)
+12. git clone <url> (this is used to clone your branch from github to local repository)
 
 
 
